@@ -41,6 +41,7 @@ ln -sf ${src_dir}/\[RENAME_TO_YOUR_ADMIN_FOLDER\]/bookx_tools.php ${dst_dir}/${a
 ln -sf ${src_dir}/\[RENAME_TO_YOUR_ADMIN_FOLDER\]/product_bookx.php ${dst_dir}/${admin_dir_name}/product_bookx.php
 
 # files in admin/includes
+
 ln -sf ${src_dir}/\[RENAME_TO_YOUR_ADMIN_FOLDER\]/includes/auto_loaders/config.product_type_bookx.php ${dst_dir}/${admin_dir_name}/includes/auto_loaders/config.product_type_bookx.php
 ln -sf ${src_dir}/\[RENAME_TO_YOUR_ADMIN_FOLDER\]/includes/classes/observers/class.bookx_admin_observers.php ${dst_dir}/${admin_dir_name}/includes/classes/observers/class.bookx_admin_observers.php
 ln -sf ${src_dir}/\[RENAME_TO_YOUR_ADMIN_FOLDER\]/includes/extra_datafiles/bookx_type_database_names.php ${dst_dir}/${admin_dir_name}/includes/extra_datafiles/bookx_type_database_names.php
@@ -102,6 +103,7 @@ ln -sf ${src_dir}/includes/languages/german/product_bookx_info.php ${dst_dir}/in
 ln -sf ${src_dir}/includes/languages/german/extra_definitions/product_bookx.php  ${dst_dir}/includes/languages/german/extra_definitions/product_bookx.php 
 
 #files in includes/modules
+ln -sf ${src_dir}/includes/modules/product_bookx_prev_next.php ${dst_dir}/includes/modules/product_bookx_prev_next.php
 ln -sf ${src_dir}/includes/modules/pages/bookx_authors_list/header_php.php ${dst_dir}/includes/modules/pages/bookx_authors_list/header_php.php
 ln -sf ${src_dir}/includes/modules/pages/bookx_genres_list/header_php.php ${dst_dir}/includes/modules/pages/bookx_genres_list/header_php.php
 ln -sf ${src_dir}/includes/modules/pages/bookx_imprints_list/header_php.php ${dst_dir}/includes/modules/pages/bookx_imprints_list/header_php.php
@@ -125,6 +127,8 @@ ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_imprin
 ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_publishers_list_default.php ${dst_dir}/includes/templates/template_default/templates/tpl_bookx_publishers_list_default.php
 ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_series_list_default.php ${dst_dir}/includes/templates/template_default/templates/tpl_bookx_series_list_default.php
 ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_product_bookx_info_display.php ${dst_dir}/includes/templates/template_default/templates/tpl_product_bookx_info_display.php
+
+ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_products_next_previous.php ${dst_dir}/includes/templates/template_default/templates/tpl_bookx_products_next_previous.php
 
 
 
