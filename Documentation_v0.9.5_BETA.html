@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Bookx Documentation</title>
+
+<style type="text/css">
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+}
+p, li {
+	margin: 0 5px;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+h1, h2, h3 {
+	margin-bottom: 3px;
+}
+
+h1 {
+	display: block;
+	border-top: 3px solid #999;
+	text-decoration: underline;
+}
+
+h2 {
+	color: #888;
+}
+
+code {
+	background-color: #FFC;
+	margin: 4px 15px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+<div style="padding: 20px;">
+  <h2 style="color: red;">Important: This software is still in a beta testing stage!</h2>
+  <p>This is the documentation page for the ZenCart product type BookX version 0.9.5 Beta (September 29, 2017).</p>
+  <p>If you have questions not answered here, please post a comment in the "BookX" thread at the <a class="" href="http://www.zen-cart.com/showthread.php?200560" rel="nofollow">ZenCart forum (english)</a> or in german at <a class="" href="http://www.zen-cart-pro.at/forum/threads/10153-Neues-Modul-Artikeltyp-Buch" rel="nofollow">Zen Cart Pro</a>.</p>
+  <p>If you have discovered a bug, please open a ticket on the <a href="http://sourceforge.net/p/zencartbookx">SourceForge BookX project page</a>. </p>
+  <h2 style="padding: 1em 10px 0 10px;">Description</h2>
+  
+  <p>This module introduces a new product type “BookX” into the Zencart shopping cart system. This product type is aimed a selling books. It allows the separate management of authors, publishers, imprints, series, genres, book conditions, binding type and printing type. These attributes can then be assigned to products of type “BookX”. In the case of authors and genres, multiple assignments can be made to a single product. In addition there are fields for number of pages, volume number in a series and publishing date. </p>
+  <p>This module is only tested on ZenCart version 1.5 up to 1.5.5. It will most probably run as is on later versions, but certainly not on earlier versions of ZC.</p>
+  <h2 style="padding: 1em 10px 0 10px;">Features</h2>
+  <ul>
+    <li>Separate database tables for publishers, authors, genres and some other book attributes, making these attributes are easier to maintain and allow for filtering of product lists in the shop</li>
+    <li>Cross-referencing between products, such as “Other books by this author / in this genre etc.)</li>
+    <li>Listings of all Authors, Series, (new as of 0.9.4:) Publishers, Imprints, Genres</li>
+    <li>“Product Info” page template (i.e. info display for single product) which can be customized by settings in the admin and without modifying the PHP code </li>
+    <li>Book X attributes are also available outside the “Product Info” page template, for example in the “Product Listing” template and the shopping cart without modifying ZC core files </li>
+    <li>Conversion of existing products to type "BookX" and vice vers</li>
+    <li>NEW in 0.9.3: Option to sort product listings according to books &quot;releases soon&quot; / &quot;new&quot; / &quot;out of print&quot;</li>
+    <li>NEW in 0.9.4: Assign &amp; remove Author / Publisher / Series / Genre / Imprint to multiple books at once</li>
+  </ul>
+  <h2 style="padding: 1em 10px 0 10px;">Feedbackware</h2>
+  <p>Since this project is hosted on Sourceforge it comes as no surprise that it is free, but this module is also <em><strong>Feedbackware</strong></em>: Please leave a message in the ZC forum if you are using this module and / or you have suggestions how it may be improved. Please report bugs.</p>
+  <h2 style="padding: 1em 10px 0 10px;">You appreciate the work  done on BookX and would like to...</h2>
+  <p>The cat wants to eat caviar and the Mrs. wants to drive a Rolls. So, if you find this software useful and you would like to make a donation, those two will be very happy to spend it while I'm sitting in the garage programming :)<br />
+    No amount is too small to be appreciated (if it pays me at least a beer) – Many thanks!</p>
+  <div style="padding: 0 50px;">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input name="cmd" type="hidden" value="_s-xclick" tabindex="3" />
+      <input name="hosted_button_id" type="hidden" value="B8AJYUXULQPSE" tabindex="4" />
+      <input alt="Donate to the BookX development" border="0" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" tabindex="5" />
+      <img alt="" border="0" height="1" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" rel="nofollow" />
+      <input name="_session_id" type="hidden" value="5a99c523d1344ea5369f89fb964e3a33741cd078a424bf452853528cf45ec5c508e6468a9c18ae9d" />
+    </form>
+  </div>
+  <h2 id="documentation-contents">&nbsp;</h2>
+  <h2>Documentation contents</h2>
+  <h3 id="install-uninstall">Install &amp; Uninstall</h3>
+  <h3 id="operating-bookx-via-zc-admin">Operating BookX via ZC Admin</h3>
+  <h3 id="configuration">Configuration</h3>
+  <h1 style="padding: 1em 10px 0 10px; text-decoration: underline;">Install &amp; Uninstall</h1>
+  <h2 style="padding: 1em 10px 0 10px;">Update</h2>
+  <p>If you are updating from a previous version of BookX, then you should move all the files included in the archive to their respective directories in your Zen Cart installation. See &quot;Install&quot; below, if you need more instructions. <span style="color: red">Attention: In version 0.9.2 some template files have moved to the "template_default" directory to allow overrides in [YOUR-CURRENTLY-ACTIVE-TEMPLATE] folder. You need to manually remove these template files with version 0.9.1 or lower from [YOUR-CURRENTLY-ACTIVE-TEMPLATE] folde in your ZC Shop installation.</span></p>
+  <p>Please exchange all the  files from one plugin version to the next. Once all files are in place, navigate to <em>&quot;Admin –&gt; Tools –&gt; BookX: Installation &amp; Tools&quot;</em> and there you can click the link &quot;Update BookX to new version&quot;. If you have already performed an update and click this link, BookX will tell you that it is up to date.<br />
+  </p>
+  <h2 style="padding: 1em 10px 0 10px;">Install</h2>
+  <p>Move all the files included in the archive you downloaded to their respective directories in your Zen Cart installation. Folders which may be named differently on your system are indicated as<br />
+    <code>[YOUR-SHOP-URL] or [YOUR-ADMIN-FOLDER] or [YOUR-ACTIVE-TEMPLATE]</code></p>
+  <p>Example: <br />
+    The folder <br />
+    <code>[UNPACKED-MODULE_FOLDER]/includes/modules/pages/bookx_product_info</code></p>
+  <p>should be placed in this folder on your system:<br />
+    <code>[YOUR-ZEN-CART-FOLDER]/includes/modules/pages/</code></p>
+  <p>&nbsp;</p>
+  <p><strong><em>During this entire process no existing file should be overwritten (unless you already have some “BookX” files ;-). </em></strong></p>
+  <p><strong><em>However, there are some files which may already exist on your system if you have modified (overridden) them yourself.</em></strong></p>
+  <p><strong><em> If you have not modified these files yourself already, then you need copy them first before you can make the necessary manual changes:</em></strong><br />
+    </p>
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/new_products.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/new_products.php</code></p>
+  <p>&nbsp;</p>
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/product_listing_alpha_sorter.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/product_listing_alpha_sorter.php</code></p>
+  <p>&nbsp;</p>
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/upcoming_products.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/modules/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/upcoming_products.php</code></p>
+  <p>&nbsp;</p>
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>template_default</strong></em>/common/tpl_tabular_display.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/[YOUR-ACTIVE-TEMPLATE]/common/tpl_tabular_display.php</code></p>
+  <p>&nbsp;</p>
+
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>template_default</strong></em>/templates/tpl_index_product_list.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/templates/tpl_index_product_list.php</code></p>
+  <p>&nbsp;</p>
+  <p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>template_default</strong></em>/templates/tpl_modules_upcoming_products.php</code></p>
+    <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/templates/tpl_modules_upcoming_products.php</code></p>
+  <p>&nbsp;</p>
+  <!--<p>copy<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>template_default</strong></em>/templates/tpl_modules_whats_new.php</code></p>
+  <p>to<code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<strong><em>[YOUR-ACTIVE-TEMPLATE]</em></strong>/templates/tpl_modules_whats_new.php</code></p>
+  <p>&nbsp;</p>-->
+  <p>You can use the files which are in this distribution as references. You will find them in the folder [EDIT_MANUALLY]. The manual changes inside the files are enclosed by comments, which also sho the total number of manual changes inside that file. Example: <em>///**** bof Bookx mod 2 of 3</em> and <em>///**** eof Bookx mod 2 of 3</em>  </p>
+  <div style="border: 3px dotted #ccc; padding: 10px; width: 90%; margin: 10px;">
+    <p>For BookX to reach full functionality, the following edits have to be made manually.</p>
+      <p>&nbsp;</p>
+      <p><strong>1.) At the top of file:</strong><br />
+        <code>[YOUR-ZEN-CART-FOLDER]/[ADMIN]/includes/modules/category_product_listing.php</code></p>
+      <p>before:<br />
+        <code>// Split Page<br />
+          // reset page when page is unknown<br />
+          if (($_GET['page'] == '1' or $_GET['page'] == '') and $_GET['pID'] != '') {</code></p>
+      <p>This line should be inserted:<br />
+        <code>$zco_notifier-&gt;notify('NOTIFY_MODULE_ADMIN_CATEGORY_LISTING_QUERY_BUILT');</code></p>
+      <p>&nbsp;</p>
+      <p><strong>2.) in the three files :</strong><br />
+      <code>[YOUR-ZEN-CART-FOLDER]/includes/modules/[YOUR-ACTIVE-TEMPLATE]/new_products.php</code>      </p>
+      <p><code>[YOUR-ZEN-CART-FOLDER]/includes/modules/[YOUR-ACTIVE-TEMPLATE]/product_listing_alpha_sorter.php</code> </p>
+      <p><code>[YOUR-ZEN-CART-FOLDER]/includes/modules/[YOUR-ACTIVE-TEMPLATE]/upcoming_products.php</code></p>
+      <p>there are three lines to be inserted in each file. Please look inside the files included with this plugin to find the lines to add.<br />
+      </p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p> <strong>3.) At the top of file:</strong><br />
+        <code>[YOUR-ZEN-CART-FOLDER]/includes/templates/[YOUR-CURRENTLY-ACTIVE-TEMPLATE]/common/tpl_tabular_display.php</code><br />
+        </p>
+      <p>before:</p>
+      <p><code>//print_r($list_box_contents);</code></p>
+      <p>the following code has to be inserted:</p>
+      <p><code>$zco_notifier-&gt;notify('NOTIFY_TEMPLATE_PRODUCT_LISTING_TABULAR_DISPLAY_BEGIN');</code></p>
+      <p>This creates a notifier hook, so BookX can inject additional product information to be displayed.</p>
+    <p>&nbsp;</p>
+        <p><strong>4.) At the top of file:</strong><br />
+          <code>[YOUR-ZEN-CART-FOLDER]/includes/templates/[YOUR-CURRENTLY-ACTIVE-TEMPLATE]/templates/tpl_index_product_list.php</code></p>
+    <p>after:<br />
+      <code>&lt;h1 id="productListHeading"&gt;&lt;?php echo $breadcrumb-&gt;last(); ?&gt;&lt;/h1&gt;</code></p>
+    <p>This line should be inserted:<br />
+      <code>&lt;?php if (isset($extra_bookx_filter_term_info)) echo $extra_bookx_filter_term_info; ?&gt;</code></p>
+    <p>&nbsp;</p>
+    <p><strong>5.) the two files :</strong><br />
+    <code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<em><strong>[YOUR-ACTIVE-TEMPLATE]</strong></em>/templates/tpl_modules_upcoming_products.php</code>    </p>
+    <!--<p><code>[YOUR-ZEN-CART-FOLDER]/includes/templates/<strong><em>[YOUR-ACTIVE-TEMPLATE]</em></strong>/templates/tpl_modules_whats_new.php</code></p>-->
+    <p>have been heavily modified and you should use the files provided with this plugin. However, you may need to merge these files with any modifications you have done on your own.</p>
+    <p></p>
+    <p>&nbsp;</p>
+    <p><strong>6.) At the top of file:</strong><br />
+    <code>[YOUR-ZEN-CART-FOLDER]/includes/classes/shopping_cart.php</code></p>
+    <p>around line 1084 inside the function get_products, replace:<br />
+    <code>  function get_products($check_for_valid_cart = false) {    </code></p>
+    <p><code>	    global $db;</code></p>
+    <p>with:<br />
+    <code>  function get_products($check_for_valid_cart = false) {    </code></p>
+    <p><code>    global $db;
+      </code></p>
+    <p><code>    /**** begin addition bookx 1 of 1 ****/
+      </code></p>
+    <p>        <code>  global $products_array; </code></p>
+    <p><code>    /**** end addition bookx 1 of 1 ****/</code></p>
+    <p></p>
+    <p>&nbsp;</p>
+  </div>
+  <p>Note that the BookX template files are placed inside the template folder &quot;template_default&quot; which means they will be used regardless of which is<code>[YOUR-ACTIVE-TEMPLATE]</code>.  This means, that if you want to modify any BookX template, you can place a copy in directory<code>[YOUR-ACTIVE-TEMPLATE]</code> and the orginal BookX file is still around in case you need to go back to it.</p>
+  <p>Once all the files are in place, login to the ZenCart admin backend and paste the following URL into your browsers address field:<br />
+    <code>http://[YOUR-SHOP-URL]/[YOUR-ADMIN-FOLDER]/?action=bookx_install</code><br />
+    an actual URL might look like this:<br />
+    <code>http://www.mysupershop.com/admin/index.php?action=bookx_install</code></p>
+  <h2 style="padding: 1em 10px 0 10px;">Conversion of existing products</h2>
+  <p>It is  possible to convert existing products (e.g. of type “Product General”) to product type BookX, so that existing product references remain useable (including orders made by customers etc.), and in addition the new BookX attributes can now be assigned. This feature can be accessed in <em>[Admin] -&gt; Tools -&gt; BookX: Installation &amp; Tools -&gt; Convert existing products. </em>There are detailed on-screen instructions of how to proceed. NOTE: You should most definitely make a database backup before converting your products to BookX product type!</p>
+  <h2 style="padding: 1em 10px 0 10px;">Uninstall</h2>
+  <p>To remove the BookX module from your shop installation, you can go to Admin –&gt; Tools –&gt; BookX: Installation &amp; Tools. There you have different options to remove BookX from the database:<br />
+    The first option is to completely delete any products of type Book X in the database and all extra attributes like authors, publishers, genres etc.<br />
+    The second option involves first converting all existing BookX products to another product type (e.g. “Product General”) keeping attributes such as price, name, weight which are present in BookX as well as the target product type. (<strong>Currently this works with destination “Product General” but some more thinking needs to go into how to match attributes against another product type</strong>) After the BookX products have been converted, you can choose the first option above to remove BookX, but now you have kept your products in the database. The product IDs remain unchanged, so existing references to these products (e.g. in orders) remain useable.</p>
+  <p>If you run into problems uninstalling BookX, but the Tools –&gt; Bookx menu has already been removed, you can try to trigger the uninstall script again by pasting the following URL into your browser:</p>
+  <p><code>http://[YOUR-SHOP-URL]/[YOUR-ADMIN-FOLDER]/?action=bookx_remove</code></p>
+  <p>After you have uninstalled BookX as described above, you can delete the BookX PHP files from your system. Check the folder structure in this distribution to see where all these files are, or search for all files containing "bookx" in their filename inside the ZC installation.</p>
+  <h1 style="padding: 1em 10px 0 10px;">Operating BookX via ZC Admin</h1>
+  <p>Operating BookX on the admin side means most of all inserting an editing data. When you first start using BookX you may in fact wish to first enter some data and then go on to set the configuration options, as it is hard to see the effect of some options without content. The BookX product data and attribute lists are not at all altered by BookX configuration settings, so you can insert data without having configured the module.<br />
+  </p>
+  <h2 style="padding: 1em 10px 0 10px;">Populating the Book X product attribute lists</h2>
+  <p>The full strength of the Book X product type only will be put to use, if some the lists for extra product attributes are populated. These are:</p>
+  <ul>
+    <li>Authors</li>
+    <li>Author Types (e.g. Writers / Illustrators / Photographers)</li>
+    <li>Binding (e.g. Hardcover / Softcover)</li>
+    <li>Conditions (e.g. new / used )</li>
+    <li>Genres (e.g. Thriller / Fiction / Garden etc.)</li>
+    <li>Imprints (e.g. Penguin “Classics”)</li>
+    <li>Printing (e.g. b&amp;w / color / text with illustrations)</li>
+    <li>Publishers</li>
+    <li>Series (e.g. “Harry Potter” ;-p )</li>
+  </ul>
+  <p>All these attributes can be set via menu items in Admin –&gt; Extras –&gt; BookX and have a combination of fields such as name, image, (long) description, URL. If you use more than one language in your shop, you will find that some of these fields allow for different values in multiple languages (e.g. name of genre) and some don’t (e.g. name of author).</p>
+  <p>If you are trying to decide, whether you should use any/some of the attributes, then the main question should be whether you will want to filter products for some of these attributes or not.</p>
+  <h2 style="padding: 1em 10px 0 10px;">Inserting a new Book X product</h2>
+  <p>The least you will have to do is to create a new product of type “Book X” via Admin –&gt; Catalog –&gt; Categories &amp; Products. Inside a category you first need to choose “Product – BookX” in the popup next to the button “New product”. (<em>Hint: Unfortunately ZC does not currently support a “default” product type, so the popup has to be set each time you insert a new product into the database. However, categories can be set to only use one product type, effectively making it the default product type for that category. This setting can be found when editing categories via the green “<strong></strong></em><em>e</em>” button in the category listing.) <br />
+    The new product of type BookX shows all the fields available for “Product – General” and the extra fields “publishing date”, “no. of pages”, “volume no.” and “dimensions”. If you have already inserted some authors, publishers, genres etc. (see below), you will see popups which allow you to choose from the list of authors, publishers, genres etc. you have created. <strong>Note: If you have not created any entries for these (authors / publishers / genres etc.), you will not see a popup allowing you to choose from these (non-existent!) entries.</strong> You are limited to the entries you have created for these lists and cannot manually add another option here. Please also note that a book can have multiple authors and genres, but only one publisher etc.  </p>
+  <h3>Publishing date</h3>
+  <p>The &quot;publishing date&quot; is differnet from the &quot;date expected&quot; which is also used normal ZCart products. The &quot;date expected&quot; should indicate the <u>availability in your shop</u>, whereas the publishing date is the date <u>when the book is first published on the market</u>. The publishing date is entered in this format for every country: YYYY-MM-DD with leading zeros, so September 8th 2014 is 2014-09-08. If the publishing date is not exact down to the day, you can set day or month to &quot;00&quot;, to indicate that the exact day or even the exact month will not be displayed. Just &quot;September 2014&quot; would therefore be entered as &quot;2014-09-00&quot;.</p>
+  <p>&nbsp;</p>
+  <p>There are two settings  which also relate to the use of &quot;publishiing date&quot; in &quot;ADMIN -&gt; Configuration -&gt; BookX: Configuration&quot;. These settings are &quot;New Products: Base on Publication Date&quot; and &quot;Upcoming Products: Base on Publication Date&quot;. They both default to &quot;ON&quot; with &quot;90 days&quot; which means that new and upcoming products are selected according to their &quot;publishing date&quot; as &quot;new&quot; or &quot;upcoming&quot;.</p>
+  <p>&nbsp;</p>
+  <h3>Linking a book to authors / series / imprint / publisher / genres</h3>
+  <p>You can link a product you are editing to any  author / series / imprint / publisher / genre via their respective popups, but there may be situations where you would like to quickly assign e.g. a new genre to multiple books at once. This can be done by selecting the author / series / imprint / publisher / genre via <em>ADMIN -&gt; Extras -&gt; BookX: Genres -&gt; Genre</em>. At the bottom of the edit screen there are two &quot;multi-select&quot; fields, where you can choose multiple books and assign the current genre. Inversely, you can use the bottom field to remove the assignment of the genre from multiple books at once.  </p>
+  <h2 style="padding: 1em 10px 0 10px;">Filtering (searching for) BookX attributes</h2>
+  <p>BookX provides some filtering fuctionality, which should be enough for many shops. Check out the &quot;BookX Filters&quot; sidebox, which will display popups for filtering based on settings in the admin backend (see above). The ZC system assumes that only one such filter is applied at a time, but BookX can handle setting multiple BookX filters at once. To use filters without the provided sidebox, you need to append at least two pieces of info to the URL. Firstly, you need to add &quot;&amp;typefilter=bookx&quot; to let ZC know that you wish BookX to handle the filters and then you add the filter value, e.g. for an author &quot;&amp;bookx_author_id=6&quot;. If you play with the sidebox, you can see all filters and the name/value pairs to add to the URL. You can combine BookX filters, e.g. &quot;&amp;typefilter=bookx&amp;bookx_author_id=5&amp;bookx_publisher_id=12&quot;, but if more than one filter is applied. Bookx will no longer output the extra info above filter results, i.e. the aforementioned URL will <u>not</u> show author image and biography <u>nor</u> publisher description and logo etc.</p>
+  <p>&nbsp;</p>
+  <h1 style="padding: 1em 10px 0 10px; text-decoration: underline;">Configuration</h1>
+  <h2 style="padding: 1em 10px 0 10px;">Configuration options for BookX via the shop Admin interface</h2>
+  <p>The configuration options for BookX are spread over a few different locations in the ZC Admin menu:</p>
+  <h3 style="padding: 0.5em 10px 0 10px; font-size: 1em;">1.) Catalog –&gt; Product Types –&gt; Products-BookX</h3>
+  <p>Via the <strong><em>"edit"</em></strong> button you can modify some technical aspects of this product type, but it is recommended to leave these settings as they are except uploading a default image for the product type and setting the option to in-/exclude products of this type from the shopping cart.</p>
+  <p>More relevant is the button <strong><em>"edit layout"</em></strong> which allows customization of the display of most of the BookX attributes in the “product_listing” view and the “product_info” view. Most options accept plain language values which indicate what they do, or:<br />
+    <code>“0” = don’t display this attribute</code><br />
+    <code>“1” = show this attribute (and its description label) </code><br />
+  </p>
+  <p>At the bottom of this list of layout settings is another option “Filter results - show author / publisher etc.”. When enabled, this means that if BookX filters are used, e.g. to show books by a certain author or publisher, some extra info is show above the search results, e.g. the foto of the author and his "description" (=biographical info), effectively transforming the filter results page into an “author” page or a “publisher” page etc.</p>
+  <p>As of version 0.9.3 there is a new option here to sort and group products according to availability dates.</p>
+  <h3 style="padding: 0.5em 10px 0 10px; font-size: 1em;">2.) Configuration –&gt; Book X: Configuration</h3>
+  <p>Some settings can be found here which could possibly have been placed in other configuration menu options (such as “minimum values”), but which are grouped here for easier access. Some concern the display of the BookX Filters sidebox.</p>
+  <p>A new feature as of version 0.9.3 is the possibility to consider the BookX &quot;publishing date&quot; in addition to the &quot;date available&quot;, when choosing which products to display in the modules &quot;new products&quot; and &quot;upcoming products&quot;. </p>
+  <h3 style="padding: 0.5em 10px 0 10px; font-size: 1em;">3.)Tools –&gt; Layout Boxes Controller:  BookX Filter sidebox  </h3>
+  <p>If you wish to use the provided sidebox for filtering products based on BookX attributes, you have to enable the sidebox in this menu. Please note that there are settings concerning which filters to show and whether they should be exclusive (i.e. setting one filter, rests all others) or if multiple filters are allowed. Note that this feature is set to <em><strong>OFF</strong></em> by default, as it actually makes using the site quite complex for visitors, so you should evaluate carefully whether this feature is useful for your shop.</p>
+  <h3 style="padding: 0.5em 10px 0 10px; font-size: 1em;">4.) Tools –&gt; BookX Installation &amp; Tools</h3>
+  <p>This menu is really only relevant when (de-) installing or updating BookX and importing or exporting BookX products from/to another type (see section “Install and De-Install” above). </p>
+  <h2 style="padding: 1em 10px 0 10px;">Configuration options for BookX via language files</h2>
+  <p>All texts and labels used by BookX are placed in language files which you can modify (rather than modifying the original files directly, it is recommended to override the language files by placing a copy with the same filename containing your edits in a folder named after your applied template next to the original file. Please check ZC documentation of the override mechanism, if you are not yet familiar with it).</p>
+  <p>Book X places language files in the following locations:<br />
+    <code>/includes/languages/english/product_bookx_info.php</code><br />
+    <code>/includes/languages/english/extra_definitions/product_bookx_info.php</code></p>
+  <p>There are more language files used for the admin side, but seeing that these are not really critical for shop &lt;-&gt; customer interaction, I will not list them here. I suggest you refer to the folder structure of the original BookX distribution, where you can easily see which admin language files are in use.</p>
+  <h2 style="padding: 1em 10px 0 10px;">Further configuration / adaptation BookX inside the PHP templates / files</h2>
+  <p>If all BookX elements you want are displayed and you just don’t like the styling or the position, then it may be enough for you to edit <br />
+    <code>/includes/templates/[YOUR-TEMPLATE]/css/stylesheet_bookx.css</code><br />
+    to reach the desired result. BookX provides many hooks for CSS styling, so you should be able to get quite far without having to touch the PHP file. Check the HTML code e.g. with firebug to see what these CSS ids or classes are. If that is not working or you are not able to reach the desired behavior of BookX only with the configuration options described above, then you will need to modify the PHP files according to your needs. The lightest form of this adaptation is to modify the file<br />
+    <code>/includes/templates/[YOUR-TEMPLATE]/templates/tpl_product_bookx_info_display.php</code> which governs the display of one single product when it is of type BookX. There are some comments at the top of tpl_product_bookx_info_display.php in the distribution, listing BookX variables available inside that template.</p>
+  <p>If you have an existing template for “tpl_product_info_display.php”, it may be quicker to copy some parts of the file above into your product info template and then save everything as “tpl_product_bookx_info_display.php”. </p>
+  <p>If that still doesn’t accomplish what you have in mind, then you will have to go deeper into the BookX files. Let us know in the BookX forum what you are doing and maybe even share the result. If it solves a problem more people are having it could be included in future BookX.</p>
+  <p>If you want to modify what and how extra BookX info is injected into "product_listing" and filter results, then look at the files:<br />
+    <code>/includes/classes/observers/class.bookx_observers.php</code><br />
+    <code>/includes/modules/pages/product_bookx_info/*.php</code></p>
+  <h2 style="padding: 1em 10px 0 10px;">Hints on how to speed up BookX on your website</h2>
+  <p>In order to interfere the least possible with ZC core files, BookX does issue some queries a second time, which can increase loading time of your pages. If you want to reduce this and you know what you are doing, you can comment out the first queries made by ZC as follows:</p>
+</div>
+</body>
+</html>

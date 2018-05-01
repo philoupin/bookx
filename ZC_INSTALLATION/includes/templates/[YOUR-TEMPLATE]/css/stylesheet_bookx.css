@@ -1,0 +1,376 @@
+/**
+ * This file is part of the ZenCart add-on Book X which
+ * introduces a new product type for books to the Zen Cart
+ * shop system. Tested for compatibility on ZC v. 1.5
+ *
+ * For latest version and support visit:
+ * https://sourceforge.net/p/zencartbookx
+ *
+ * @package templateSystem
+ * @author  Philou
+ * @copyright Copyright 2013
+ * @copyright Portions Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Portions Copyright 2003 osCommerce
+ * @license http://www.gnu.org/licenses/gpl.txt GNU General Public License V2.0
+ *
+ * @version BookX V 0.9.4-revision8 BETA
+ * @version $Id: [ZC INSTALLATION]/includes/templates/[CURRENT_TEMPLATE]/css/stylesheet_bookx.css 2016-02-02 philou $
+ */
+
+@CHARSET "UTF-8";
+
+#productPrices {
+	float: right;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.bookxLabel {
+	font-style: italic;
+	font-weight: normal;
+}
+
+#bookxImprint, #bookxPublishingDate, #bookxExtraAttributes, .bookxExtraAttributes,
+.bookxSingleAuthor, .bookxSingleGenre {
+	display: block;
+}
+
+.bookxCondition {}
+
+.bookxPublishingDate {}
+.bookxISBN {}
+.bookxModel {}
+.bookxTitle {}
+.bookxSubtitle {}
+.bookxVolume {}
+
+
+.bookxGenres {
+    margin-top: 5px;
+}
+
+
+.bookxAuthors {
+	font-size: 1em;
+}
+
+.bookxSingleAuthor {
+	/*padding: 5px;
+	border: 1px solid #ccc;*/
+	width: 50%;
+	float: left;
+}
+
+.bookxAuthor {
+	font-weight: bold;
+}
+
+.bookxAuthorImage {
+	float: left;
+	margin: 0 1em 0.7em 0;
+}
+
+.bookxAuthorDescription {
+	padding-right: 40%
+}
+
+.bookxAuthorDescription p {
+	margin: 0;
+	padding-right: 2em;
+}
+
+.bookxAuthorDescription .bookxLabel {
+	color: #2793d6;
+	font-weight: bold;
+}
+
+.bookxAuthorRelatedProducts {
+	float: right;
+	width: 40%;
+}
+
+
+
+.bookxAuthorUrl {
+    color: #aa1166;
+}
+
+.bookxAuthorRelatedProductsHeading {
+    clear: both;
+}
+
+/* wraps extra bookx attributes info on product_info_display page */
+#bookxExtra {
+	margin-top: 10px;
+}
+#bookxExtra #productDescription {
+	border: 1px solid #000;
+}
+
+.bookxSingleGenre, .bookxGenreName, .bookxGenreImage {
+	display: inline;
+}
+
+.bookxGenres .bookxSingleGenre {
+    /*border-right: 1px solid #666;
+    padding-right: 7px;
+    margin-right: 7px;*/
+}
+
+/* display volume no. of book */
+.bookxProdVolume {
+	display: inline;
+	color: #000;
+}
+
+/* display subtitle of book */
+.bookxProdSubtitle {
+	display: inline;
+	color: #000;
+	font-style: italic;
+}
+
+/* wrapper for publisher detail on product_info_display */
+#bookxPublisher {
+	border: 1px solid #000;
+}
+
+.bookxPublisherName {}
+
+.bookxPublisherImage {
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+}
+
+.bookxPublisherDescription {
+}
+
+.bookxPublisherUrl {}
+
+#bookxImprint {}
+
+.bookxImprintImage{}
+
+.bookxImprintDescription{}
+
+.bookxImprintName{}
+
+.bookxImprintUrl{}
+
+.productListing-data #bookxPublishingDate {
+
+}
+
+.listingDescription {
+	margin-top: 5px;
+}
+
+.listingProductImage {
+	border: 1px solid #000;
+	margin-right: 15px;
+}
+
+.booxAuthorRelatedType { /* .bookxRelatedProduct, */
+	display: inline;
+}
+
+#bookxSeries{}
+
+.bookxSeriesImage{}
+.bookxSeriesName{}
+
+.bookxSeriesDescription{}
+
+#bookxExtraAttributes a.boox_searchlink:link,
+#bookxExtraAttributes a.boox_searchlink:active,
+#bookxExtraAttributes a.boox_searchlink:visited {
+	color: #2740d6;
+}
+
+a.boox_searchlink:hover,
+a.bookx_product_name:hover,
+a.bookx_product_name:hover .bookxTitle,
+a.bookx_product_name:hover .bookxProdSubtitle,
+#whatsNew a:hover .bookxProdSubtitle {
+	color: #06E;
+}
+
+a:hover .listingProductImage,
+#bookxUpcomingProductsWrapper a:hover img,
+#whatsNew a:hover img {
+	border-color: #06E;
+}
+
+#bookxAuthorListingTable td.bookxAuthorListingInfoCell,
+#bookxSeriesListingTable td.bookxSeriesListingInfoCell {
+	padding: 0 10px 10px 10px;
+}
+
+#bookxAuthorListingTable a.bookx_searchlink,
+#bookxSeriesListingTable a.bookx_searchlink {
+	margin-left: 0px;
+}
+
+#bookxAuthorListingTable td,
+#bookxSeriesListingTable td {
+	vertical-align: top;
+}
+
+#bookxAuthorListingTable .bookxAuthorName,
+#bookxSeriesListingTable .bookxSeriesName {
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+#bookxRelatedProductsTeam {
+	float: left;
+	clear: both;
+}
+
+.tabTable tr.bookxList-newProductsHeading,
+.tabTable tr.bookxList-upcomingProductsHeading,
+.tabTable tr.bookxList-publishedProductsHeading {
+	border-bottom: 5px solid #fff;
+}
+
+.productListing-data a:hover {
+    text-decoration: none;
+}
+
+.productListing-data a.bookx_searchlink:hover {
+    text-decoration: underline;
+}
+
+.button_bookx_new,
+#bookxExtra .button_bookx_new,
+#cartAdd .button_bookx_new,
+.productListing-data .button_bookx_new {
+    background-color: #fff;
+	color: #f00;
+	border: 1px solid #3399FF;
+}
+
+.new-product .button_bookx_newHover,
+#cartAdd .button_bookx_newHover,
+#docProductDisplay #cartAdd .button_bookx_newHover {
+    background-color: #3399FF;
+	color: #fff;
+	border: 1px solid #f00;
+}
+
+.upcoming-product .button_bookx_upcoming, .upcoming-product .button_bookx_upcomingHover
+#cartAdd .button_bookx_upcoming, #cartAdd .button_bookx_upcomingHover {
+    background-color: transparent;
+	color: #39F;
+	border: 1px solid #39F;
+}
+
+.bookxAuthorImage {
+	position: relative;
+}
+
+.bookxAuthorImageCopyright {
+	width:170px;
+	height:10px;
+	position: absolute;
+	left: -90px;
+	bottom: 80px;
+	overflow: hidden;
+	font-size: 8px;
+	-ms-transform:rotate(270deg); /* IE 9 */
+	-moz-transform:rotate(270deg); /* Firefox */
+	-webkit-transform:rotate(270deg); /* Safari and Chrome */
+	-o-transform:rotate(270deg); /* Opera */
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);  /* IE earlier 9 */
+}
+
+#bookxUpcomingProductsWrapper {
+	display: table;
+}
+
+#bookxUpcomingProductsFirstRow,
+#bookxUpcomingProductsWrapper .rowEven,
+#bookxUpcomingProductsWrapper .rowOdd {
+	display: table-row;
+	height: 100%;
+}
+
+#upImageHeading, #upProductsHeading, #upDescriptionHeading,
+#upPublishingDateHeading, #upDateExpectedHeading,
+.upImageCell, .upProductsCell, .upDescriptionCell,
+.upPublishingDateCell, .upDateExpectedCell {
+	display: table-cell;
+	vertical-align: top;
+	padding: 5px;
+}
+
+.upImageCell {
+	padding: 0;
+}
+
+#upImageHeading {
+	width: 126px;
+}
+
+.upImageCell img,
+#whatsNew img {
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+}
+
+#bookxUpcomingProductsHeading {
+	display: table-caption;
+}
+
+#bookxUpcomingProductsWrapper p {
+	margin: 0;
+	padding: 0;
+}
+
+.bookxRelatedProduct_out_of_print,
+.bookxRelatedProduct_out_of_print a {
+	color: #999;
+}
+
+.bookxRelatedProduct_new_product .bookx_product_status {
+	color: #ff0000;
+	font-weight: bold;
+}
+
+.bookxRelatedProduct_new_product a {
+	font-weight: bold;
+}
+
+.bookxRelatedProduct_upcoming_product .bookx_product_status {
+	color: #ff0000;
+	font-weight: bold;
+}
+
+
+#upImageHeading, #upProductsHeading, #upDescriptionHeading,
+#upPublishingDateHeading, #upDateExpectedHeading {}
+
+.navNextPrevWrapper {
+	margin-bottom: 20px;
+}
+
+form.bxf_active select {
+	color: #f00;
+}
+
+#navBreadCrumb .bookxFilterBreadcrumbLabel {
+	font-weight: normal;
+	color: #000;
+}
+
+#navBreadCrumb .bookxSubtitle {
+	font-style: italic;
+}
+
+#navBreadCrumb .bookxVolume {
+	color: #000;
+}
+.search-term-hi {
+	background-color: yellow;
+}
