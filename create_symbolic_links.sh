@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # version BookX 0.9.5 BETA
+src_dir=/FULL_PATH_TO_YOUR_BOOKX_INSTALLATION/bookX/ZC_INSTALLATION
+dst_dir=/FULL_PATH_TO_YOUR_ZENCART_INSTALLATION/zen-cart
+admin_dir_name=NAME_OF_YOUR_ADMIN_DIR
+tpl_dir_name=NAME_OF_YOUR_TEMPLATE
 
-src_dir="/c/xampp/htdocs/vhosts/zenbookx.local/bookx-zc155f/ZC_INSTALLATION"
-dst_dir="/c/xampp/htdocs/vhosts/zenbookx.local"
-admin_dir_name="zenadmin"
-tpl_dir_name="responsive_classic"
+# example windows
+#src_dir="/c/xampp/htdocs/vhosts/zenbookx.local/bookx-zc155f/ZC_INSTALLATION"
+#dst_dir="/c/xampp/htdocs/vhosts/zenbookx.local"
+#admin_dir_name="zenadmin"
+#tpl_dir_name="responsive_classic"
 
 #create folders first
 umask 000
