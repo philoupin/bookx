@@ -5,10 +5,10 @@
  * This file is used for generating tabular output where needed, based on the supplied array of table-cell contents.
  *
  * @package templateSystem
- * @copyright Copyright 2003-2014 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
- * @license http://www.zen-cart-pro.at/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_tabular_display.php 729 2011-08-09 15:49:16Z hugo13 $
+ * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
+ * @version $Id: Author: DrByte  Mon Feb 15 13:59:01 2016 -0500 Modified in v1.5.5 $
  *
  * @version BookX V 0.9.4-revision8 BETA
  * @version $Id: [ZC INSTALLATION]/includes/templates/[CURRENT_TEMPLATE]/common/tpl_tabular_display.php 2016-02-02 philou $
@@ -27,15 +27,19 @@
 
 //***  this notifications allows the BookX observer to alter $list_box_contents so additional product attributes are available
 //**** bof Bookx mod 1 of 1
+
+// @TODO check if still needed
 $zco_notifier->notify('NOTIFY_TEMPLATE_PRODUCT_LISTING_TABULAR_DISPLAY_BEGIN');
 //*** eof Bookx mod 1 of 1
+
+$zco_notifier->notify('NOTIFY_TPL_TABULAR_DISPLAY_START', $current_page_base, $list_box_contents);
 
 //print_r($list_box_contents);
   $cell_scope = (!isset($cell_scope) || empty($cell_scope)) ? 'col' : $cell_scope;
   $cell_title = (!isset($cell_title) || empty($cell_title)) ? 'list' : $cell_title;
 
 ?>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" id="<?php echo 'cat' . $cPath . 'Table'; ?>" class="tabTable">
+<table id="<?php echo 'cat' . $cPath . 'Table'; ?>" class="tabTable">
 <?php
   for($row=0; $row<sizeof($list_box_contents); $row++) {
     $r_params = "";
@@ -60,5 +64,7 @@ $zco_notifier->notify('NOTIFY_TEMPLATE_PRODUCT_LISTING_TABULAR_DISPLAY_BEGIN');
   </tr>
 <?php
   }
-?> 
+?>
 </table>
+<?php
+$zco_notifier->notify('NOTIFY_TPL_TABULAR_DISPLAY_END', $current_page_base, $list_box_contents);
