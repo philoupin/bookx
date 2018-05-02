@@ -311,7 +311,7 @@ class productTypeFilterObserver extends base {
 				$join_author_type = true;
 
 			} else {
-				$additional_fields .= ', GROUP_CONCAT(ba.author_name ORDER BY ba.author_name ASC SEPARATOR " &middot; ") AS authors';
+				$additional_fields .= ', GROUP_CONCAT(DISTINCT ba.author_name ORDER BY ba.author_name ASC SEPARATOR " &middot; ") AS authors';
 			}
 			$join_author = true;
 			$join_bx_extra = true;
@@ -525,10 +525,10 @@ class productTypeFilterObserver extends base {
 		
 			while (!$bookx_products_in_cart->EOF) {
 				$products_array[$ids[$bookx_products_in_cart->fields['products_id']]]['name'] .= zen_trunc_string(
-																												  (!empty($bookx_products_in_cart->fields['volume']) ? '&nbsp;' . $bookx_products_in_cart->fields['volume'] : '') .
-																												  (!empty($bookx_products_in_cart->fields['products_subtitle']) ? ' &ndash; ' . $bookx_products_in_cart->fields['products_subtitle'] : '')
-																												  , 50
-																												  );
+					(!empty($bookx_products_in_cart->fields['volume']) ? '&nbsp;' . $bookx_products_in_cart->fields['volume'] : '') .
+					(!empty($bookx_products_in_cart->fields['products_subtitle']) ? ' &ndash; ' . $bookx_products_in_cart->fields['products_subtitle'] : '')
+						, 50
+					);
 				// overkill ? . (strstr($bookx_products_in_cart->fields['authors'], '|') ? LABEL_BOOKX_AUTHORS : LABEL_BOOKX_AUTHOR) . ': ' .
 				$bookx_products_in_cart->MoveNext();
 			}
@@ -874,7 +874,7 @@ class productTypeFilterObserver extends base {
 					}
 
 					if (!empty($author->fields['author_description']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_author_extra_info) {
-						$extra_html .= '<div id="bookx_filter_author_description">' . $author->fields['author_description'] . '</div>';
+						$extra_html .= '<div id="bookx_filter_author_description">' . zen_html_entity_decode($author->fields['author_description']) . '</div>';
 					}
 
 					if (!empty($author->fields['author_url']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_author_extra_info) {
@@ -900,7 +900,7 @@ class productTypeFilterObserver extends base {
 			        }
 			
 			        if (!empty($author_type->fields['type_description']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_author_type_extra_info) {
-			            $extra_html .= '<div id="bookx_filter_author_type_description">' . $author_type->fields['type_description'] . '</div>';
+			            $extra_html .= '<div id="bookx_filter_author_type_description">' . zen_html_entity_decode($author_type->fields['type_description']) . '</div>';
 			        }
 			
 			    }
@@ -922,7 +922,7 @@ class productTypeFilterObserver extends base {
 					}
 
 					if (!empty($publisher->fields['publisher_description']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_publisher_extra_info) {
-						$extra_html .= '<div id="bookx_filter_publisher_description">' . $publisher->fields['publisher_description'] . '</div>';
+						$extra_html .= '<div id="bookx_filter_publisher_description">' . zen_html_entity_decode($publisher->fields['publisher_description']) . '</div>';
 					}
 
 					if (!empty($publisher->fields['publisher_url']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_publisher_extra_info) {
@@ -948,7 +948,7 @@ class productTypeFilterObserver extends base {
 					}
 
 					if (!empty($imprint->fields['imprint_description']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_imprint_extra_info) {
-						$extra_html .= '<div id="bookx_filter_imprint_description">' . $imprint->fields['imprint_description'] . '</div>';
+						$extra_html .= '<div id="bookx_filter_imprint_description">' . zen_html_entity_decode($imprint->fields['imprint_description']) . '</div>';
 					}
 				}
 			}
@@ -968,7 +968,7 @@ class productTypeFilterObserver extends base {
 					}
 
 					if (!empty($series->fields['series_description']) || BOOKX_LAYOUT_FLAG_OPTION_ALWAYS_DISPLAY == (int)$this->flag_show_product_bookx_filter_series_extra_info) {
-						$extra_html .= '<div id="bookx_filter_series_description">' . $series->fields['series_description'] . '</div>';
+						$extra_html .= '<div id="bookx_filter_series_description">' . zen_html_entity_decode($series->fields['series_description']) . '</div>';
 					}
 				}
 			}
@@ -1095,6 +1095,7 @@ class productTypeFilterObserver extends base {
 	function insert_bookx_attributes_into_new_products_query(&$callingClass, $notifier, $paramsArray) {
 		global $db, $new_products_query, $new_products;
 
+		// @TODO New stuff added by phill, check this
 		if (!empty($new_products_query)) {
     		$this->loadFilterValues();
     
@@ -1224,7 +1225,7 @@ class productTypeFilterObserver extends base {
 		        while (!$new_products->EOF) {
 		            $products_price = zen_get_products_display_price($new_products->fields['products_id']); //zen_get_products_actual_price($products_id)
 		            if (!isset($productsInCategory[$new_products->fields['products_id']])) $productsInCategory[$new_products->fields['products_id']] = zen_get_generated_category_path_rev($new_products->fields['master_categories_id']);
-		
+					// DO we need to add this to the url ? It messes if using url rewrite
 		            $product_detail_url = zen_href_link(zen_get_info_page($new_products->fields['products_id']), 'cPath=' . $productsInCategory[$new_products->fields['products_id']] . '&products_id=' . $new_products->fields['products_id'] . '&typefilter=bookx&bookx_publishing_status=new');
 		
 		            $list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsNew centeredContent "' . ' ' . 'style="float: left; width:' . $col_width . '%;"',
@@ -1257,8 +1258,10 @@ class productTypeFilterObserver extends base {
 		
 		if (!empty($expected_query)) {
     		$this->loadFilterValues();
-    
-    		$additional_bookx_fields = '';
+			
+			// @TODO new stuff added by phill. Check this
+			
+			$additional_bookx_fields = '';
     		$extra_join = '';
     		$extra_having = '';
     		$extra_where_condition = '';
