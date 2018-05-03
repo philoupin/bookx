@@ -37,7 +37,7 @@
         if (isset($_GET['mID'])) $bookx_binding_id = zen_db_prepare_input($_GET['mID']);
         $binding_sort_order = zen_db_prepare_input($_POST['binding_sort_order']);
         
-        $sql_data_array = array('binding_sort_order' => $binding_sort_order);        
+        $sql_data_array = array('binding_sort_order' => (int)$binding_sort_order);        
 
         if ($action == 'insert') {
 

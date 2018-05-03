@@ -45,7 +45,7 @@
         if (isset($_GET['mID'])) $bookx_genre_id = zen_db_prepare_input($_GET['mID']);
         $genre_sort_order = zen_db_prepare_input($_POST['genre_sort_order']);
 
-        $sql_data_array = array('genre_sort_order' => $genre_sort_order, 'last_modified' => 'now()');
+        $sql_data_array = array('genre_sort_order' => (int)$genre_sort_order, 'last_modified' => 'now()');
 
         if ($action == 'insert') {
           $insert_sql_data = array('date_added' => 'now()');

@@ -37,7 +37,7 @@
         if (isset($_GET['mID'])) $type_id = zen_db_prepare_input($_GET['mID']);
         $type_sort_order = zen_db_prepare_input($_POST['type_sort_order']);
 
-        $sql_data_array = array('type_sort_order' => $type_sort_order); // , 'last_modified' => 'now()'
+        $sql_data_array = array('type_sort_order' => (int)$type_sort_order); // , 'last_modified' => 'now()'
 
         if ($action == 'insert') {
          /* $insert_sql_data = array('date_added' => 'now()');

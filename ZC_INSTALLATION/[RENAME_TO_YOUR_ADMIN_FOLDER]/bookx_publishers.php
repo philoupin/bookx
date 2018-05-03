@@ -41,7 +41,7 @@
 
         $publisher_sort_order = zen_db_prepare_input($_POST['publisher_sort_order']);
 
-        $sql_data_array = array_merge($sql_data_array, array('publisher_sort_order' => $publisher_sort_order));
+        $sql_data_array = array_merge($sql_data_array, array('publisher_sort_order' => (int)$publisher_sort_order));
 
 
         if ($action == 'insert') {
