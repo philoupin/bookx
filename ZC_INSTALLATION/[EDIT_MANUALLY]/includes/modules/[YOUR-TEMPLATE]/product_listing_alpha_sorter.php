@@ -13,7 +13,7 @@ if (!defined('IS_ADMIN_FLAG')) {
 }
 
 //**** bof Bookx mod 1 of 1
-$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN');
+//$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN');
 //**** eof Bookx mod 1 of 1
 
 // build alpha sorter dropdown
