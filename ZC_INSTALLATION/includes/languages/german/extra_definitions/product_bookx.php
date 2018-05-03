@@ -134,4 +134,10 @@ define('TEXT_BOOKX_NEW_PRODUCTS_LABEL', 'Neuheiten');
 
 define('TEXT_BOOKX_LINK_TO_PRODUCT_DETAIL', '-> Leseproben / Autoren-Bio / Rezensionen');
 
-
+//added by mesnitu
+define('PULL_DOWN_ALL_AUTHORS', 'Filter Authors');
+define('PULL_DOWN_ALL_AUTHOR_TYPES', 'Filter Author Types');
+define('PULL_DOWN_ALL_SERIES', 'Filter Series');
+define('PULL_DOWN_ALL_GENRES', 'Filter Genres');
+define('PULL_DOWN_ALL_IMPRINTS', 'Filter Imprint');
+define('PULL_DOWN_ALL_PUBLISHERS', 'Filter Publishers');

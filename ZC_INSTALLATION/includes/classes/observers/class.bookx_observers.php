@@ -152,7 +152,7 @@ class productTypeFilterObserver extends base {
 	   									  ,'NOTIFY_MODULE_NEW_PRODUCTS_END'
 	   									  ,'NOTIFY_MODULE_UPCOMING_PRODUCTS_QUERY_BUILT'
 	   									  ,'NOTIFIER_CART_GET_PRODUCTS_END'
-	   	                                  ,'NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN'
+	   	                                  ,'NOTIFY_PRODUCT_LISTING_ALPHA_SORTER_SELECTLIST'
 	   									   )
 	   						 );
     }
@@ -202,7 +202,7 @@ class productTypeFilterObserver extends base {
 				$this->insert_bookx_attributes_into_upcoming_products_query($callingClass, $notifier, $paramsArray);
 				break;
 				
-			case 'NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN':
+			case 'NOTIFY_PRODUCT_LISTING_ALPHA_SORTER_SELECTLIST':
 			    $this->insert_bookx_hidden_field_into_alpha_sorter($callingClass, $notifier, $paramsArray);
 			    break;
 				
@@ -1395,6 +1395,7 @@ class productTypeFilterObserver extends base {
 	 * and it adds a hidden field to the alpha sorter HTML form, so any active BookX filter will be kept active when sorting
 	 */
 	function insert_bookx_hidden_field_into_alpha_sorter(&$callingClass, $notifier, $paramsArray) {
+        
 	    if (isset($_GET['typefilter']) && 'bookx' == $_GET['typefilter']) {
 			if (isset($_GET['bookx_author_id']) && '' != $_GET['bookx_author_id']) {
 			   echo zen_draw_hidden_field('bookx_author_id', $_GET['bookx_author_id']);

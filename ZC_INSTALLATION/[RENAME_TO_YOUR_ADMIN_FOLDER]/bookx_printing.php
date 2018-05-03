@@ -37,7 +37,7 @@
         if (isset($_GET['mID'])) $bookx_printing_id = zen_db_prepare_input($_GET['mID']);
         $printing_sort_order = zen_db_prepare_input($_POST['printing_sort_order']);
         
-        $sql_data_array = array('printing_sort_order' => $printing_sort_order);        
+        $sql_data_array = array('printing_sort_order' => (int)$printing_sort_order);        
 
         if ($action == 'insert') {
 

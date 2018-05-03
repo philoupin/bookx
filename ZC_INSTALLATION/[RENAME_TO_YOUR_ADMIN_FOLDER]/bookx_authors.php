@@ -43,10 +43,10 @@
         $author_default_type = zen_db_prepare_input($_POST['author_default_type']);
 
         $sql_data_array = array('author_name' => $author_name,
-        						'author_sort_order' => $author_sort_order,
+        						'author_sort_order' => (int)$author_sort_order,
         						'author_url' => $author_url,
         						'author_image_copyright' => $author_image_copyright,
-        						'author_default_type' => $author_default_type,
+        						'author_default_type' => (int)$author_default_type,
         						'last_modified' => 'now()');
 
         if ($action == 'insert') {

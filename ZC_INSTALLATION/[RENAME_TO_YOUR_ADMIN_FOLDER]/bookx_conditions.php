@@ -37,7 +37,7 @@
         if (isset($_GET['mID'])) $bookx_condition_id = zen_db_prepare_input($_GET['mID']);
         $condition_sort_order = zen_db_prepare_input($_POST['condition_sort_order']);
         
-        $sql_data_array = array('condition_sort_order' => $condition_sort_order);        
+        $sql_data_array = array('condition_sort_order' => (int)$condition_sort_order);        
 
         if ($action == 'insert') {
 

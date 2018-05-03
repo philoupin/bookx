@@ -135,12 +135,12 @@
 
 
       $sql_data_array = array('products_id' => (int)$products_id,
-                              'bookx_publisher_id' => $bookx_publisher_id,
-                              'bookx_series_id' => $bookx_series_id,
-                              'bookx_imprint_id' => $bookx_imprint_id,
-                              'bookx_binding_id' => $bookx_binding_id,
-                              'bookx_printing_id' => $bookx_printing_id,
-                              'bookx_condition_id' => $bookx_condition_id,
+                              'bookx_publisher_id' => (int)$bookx_publisher_id,
+                              'bookx_series_id' => (int)$bookx_series_id,
+                              'bookx_imprint_id' => (int)$bookx_imprint_id,
+                              'bookx_binding_id' => (int)$bookx_binding_id,
+                              'bookx_printing_id' => (int)$bookx_printing_id,
+                              'bookx_condition_id' => (int)$bookx_condition_id,
                               'publishing_date' => $publishing_date,
                               'pages' => $pages,
                               'volume' => $volume,
@@ -173,9 +173,10 @@
       			$bookx_author_type_id = (!zen_not_null($tmp_value) || $tmp_value=='' || $tmp_value === 0) ? null : (int)$tmp_value;
       		}
       		if ($bookx_author_id) {
-	      		$sql_data_array = array('products_id' => (int)$products_id,
-	      								'bookx_author_id' => (int)$bookx_author_id,
-	                              		'bookx_author_type_id' => $bookx_author_type_id);
+	      		$sql_data_array = array(
+              'products_id' => (int)$products_id,
+	      			'bookx_author_id' => (int)$bookx_author_id,
+	            'bookx_author_type_id' => (int)$bookx_author_type_id);
 	      		zen_db_perform(TABLE_PRODUCT_BOOKX_AUTHORS_TO_PRODUCTS, $sql_data_array);
       		}
       	}
@@ -252,12 +253,12 @@
       $isbn = (!zen_not_null($tmp_value) || $tmp_value=='' || $tmp_value === 0) ? null : $tmp_value;
 
       $sql_data_array = array('products_id' => (int)$products_id,
-                              'bookx_publisher_id' => $bookx_publisher_id,
-                              'bookx_series_id' => $bookx_series_id,
-                              'bookx_imprint_id' => $bookx_imprint_id,
-                              'bookx_binding_id' => $bookx_binding_id,
-                              'bookx_printing_id' => $bookx_printing_id,
-                              'bookx_condition_id' => $bookx_condition_id,
+                              'bookx_publisher_id' => (int)$bookx_publisher_id,
+                              'bookx_series_id' => (int)$bookx_series_id,
+                              'bookx_imprint_id' => (int)$bookx_imprint_id,
+                              'bookx_binding_id' => (int)$bookx_binding_id,
+                              'bookx_printing_id' => (int)$bookx_printing_id,
+                              'bookx_condition_id' => (int)$bookx_condition_id,
                               'publishing_date' => $publishing_date,
                               'pages' => $pages,
                               'volume' => $volume,
@@ -341,8 +342,8 @@
       			case (null == $primary_id && null != $bookx_author_id):
       				//this is a new author_to_product table entry and an existing author is assigned -> INSERT table entry
       				$sql_data_array = array('products_id' => (int)$products_id,
-      										'bookx_author_id' => $bookx_author_id,
-      										'bookx_author_type_id' => $bookx_author_type_id);
+      										'bookx_author_id' => (int)$bookx_author_id,
+      										'bookx_author_type_id' => (int)$bookx_author_type_id);
 
       				zen_db_perform(TABLE_PRODUCT_BOOKX_AUTHORS_TO_PRODUCTS, $sql_data_array, $atp_action, $where_clause);
       				break;
