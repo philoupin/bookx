@@ -18,7 +18,6 @@
  * @version $Id: [admin]/includes/languages/english/bookx_authors.php 2016-02-02 philou $
  */
 
-
 define('HEADING_TITLE', 'Author');
 define('TABLE_HEADING_AUTHOR', 'Author');
 define('TABLE_HEADING_SORT_ORDER', 'Sort Order');
@@ -36,7 +35,7 @@ define('TEXT_AUTHOR_IMAGE_NOT_DEFINED', '[No picture for author available]');
 define('TEXT_AUTHOR_IMAGE_COPYRIGHT', 'Copyright notice to be displayed next to author image:<br />');
 define('TEXT_AUTHOR_URL', 'Website of author  (Please enter without "http://"):<br />');
 define('TEXT_AUTHOR_IMAGE_DIR', 'Image directory ');
-define('TEXT_SERIES_IMAGE_MANUAL', '<strong>Or choose an existing image from the server. Filename:</strong>');
+define('TEXT_AUTHOR_IMAGE_MANUAL', '<strong>Or choose an existing image from the server, filename:</strong>');
 define('TEXT_HEADING_NEW_AUTHOR', 'new author');
 define('TEXT_HEADING_EDIT_AUTHOR', 'Edit author');
 define('TEXT_HEADING_DELETE_AUTHOR', 'Delete author');
