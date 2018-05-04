@@ -27,8 +27,11 @@
 <div class="centerColumn" id="indexProductList">
 
 <h1 id="productListHeading"><?php echo $breadcrumb->last(); ?></h1>
+<?php 
+//**** bof Bookx mod 1 of 1
+if (isset($extra_bookx_filter_term_info)) echo $extra_bookx_filter_term_info; 
+//*** eof Bookx mod 1 of 1
 
-<?php
 if (PRODUCT_LIST_CATEGORIES_IMAGE_STATUS == 'true') {
 // categories_image
   if ($categories_image = zen_get_categories_image($current_category_id)) {

@@ -38,7 +38,7 @@
         $imprint_name = zen_db_prepare_input($_POST['imprint_name']);
         $imprint_sort_order = zen_db_prepare_input($_POST['imprint_sort_order']);
 
-        $sql_data_array = array('imprint_name' => $imprint_name, 'imprint_sort_order' => $imprint_sort_order, 'last_modified' => 'now()');
+        $sql_data_array = array('imprint_name' => $imprint_name, 'imprint_sort_order' => (int)$imprint_sort_order, 'last_modified' => 'now()');
 
         if ($action == 'insert') {
           $insert_sql_data = array('date_added' => 'now()');

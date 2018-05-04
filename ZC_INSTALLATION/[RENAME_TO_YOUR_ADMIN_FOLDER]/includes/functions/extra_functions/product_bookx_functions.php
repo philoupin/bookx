@@ -298,6 +298,9 @@ function bookx_get_products_subtitle($products_id, $language_id) {
   	global $db;
   	if (null != $product_id) {
   		$db->Execute('DELETE FROM ' . TABLE_PRODUCT_BOOKX_EXTRA . '
+					  WHERE products_id = "' . (int)$product_id . '"');
+		
+		$db->Execute('DELETE FROM ' . TABLE_PRODUCT_BOOKX_EXTRA_DESCRIPTION . '
                       WHERE products_id = "' . (int)$product_id . '"');
 
   		$db->Execute('DELETE FROM ' . TABLE_PRODUCT_BOOKX_GENRES_TO_PRODUCTS . '

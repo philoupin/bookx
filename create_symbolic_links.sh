@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # version BookX 0.9.5 BETA
-
 src_dir=/FULL_PATH_TO_YOUR_BOOKX_INSTALLATION/bookX/ZC_INSTALLATION
 dst_dir=/FULL_PATH_TO_YOUR_ZENCART_INSTALLATION/zen-cart
 admin_dir_name=NAME_OF_YOUR_ADMIN_DIR
 tpl_dir_name=NAME_OF_YOUR_TEMPLATE
+
+# example windows
+#src_dir="/c/xampp/htdocs/vhosts/zenbookx.local/bookx-zc155f/ZC_INSTALLATION"
+#dst_dir="/c/xampp/htdocs/vhosts/zenbookx.local"
+#admin_dir_name="zenadmin"
+#tpl_dir_name="responsive_classic"
 
 #create folders first
 umask 000
@@ -115,7 +120,6 @@ ln -sf ${src_dir}/includes/modules/pages/product_bookx_info/jscript_main.php ${d
 ln -sf ${src_dir}/includes/modules/pages/product_bookx_info/jscript_textarea_counter.js ${dst_dir}/includes/modules/pages/product_bookx_info/jscript_textarea_counter.js
 ln -sf ${src_dir}/includes/modules/pages/product_bookx_info/main_template_vars_product_type.php ${dst_dir}/includes/modules/pages/product_bookx_info/main_template_vars_product_type.php
 ln -sf ${src_dir}/includes/modules/pages/product_bookx_info/main_template_vars.php ${dst_dir}/includes/modules/pages/product_bookx_info/main_template_vars.php
-
 ln -sf ${src_dir}/includes/modules/sideboxes/bookx_filters.php ${dst_dir}/includes/modules/sideboxes/bookx_filters.php
 
 #files in includes/templates
@@ -129,6 +133,4 @@ ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_series
 ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_product_bookx_info_display.php ${dst_dir}/includes/templates/template_default/templates/tpl_product_bookx_info_display.php
 
 ln -sf ${src_dir}/includes/templates/template_default/templates/tpl_bookx_products_next_previous.php ${dst_dir}/includes/templates/template_default/templates/tpl_bookx_products_next_previous.php
-
-
 

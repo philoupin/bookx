@@ -21,7 +21,7 @@
 define('DATE_FORMAT_MONTH_AND_YEAR', '%M %Y');
 
 define('BOX_HEADING_BOOKX_FILTERS', 'Book Filters');
-define('PULL_DOWN_BOOKX_RESET', '- Zurücksetzen -');
+define('PULL_DOWN_BOOKX_RESET', '- Reset to default -');
 define('BOOKX_GENRE_SEPARATOR', ' | ');
 
 define('BOOKX_BREADCRUMB_LABEL_SEARCHTERM', 'Search for');
@@ -129,3 +129,11 @@ define('TEXT_BOOKX_NEW_PRODUCTS_LABEL', 'New');
 
 define('TEXT_BOOKX_LINK_TO_PRODUCT_DETAIL', '-> more infos');
 
+//added by mesnitu
+//added by mesnitu
+define('PULL_DOWN_ALL_AUTHORS', 'Filter authors');
+define('PULL_DOWN_ALL_AUTHOR_TYPES', 'Filter Author Types');
+define('PULL_DOWN_ALL_SERIES', 'Filter Series');
+define('PULL_DOWN_ALL_GENRES', 'Filter Genres');
+define('PULL_DOWN_ALL_IMPRINTS', 'Filter Imprint');
+define('PULL_DOWN_ALL_PUBLISHERS', 'Filter Publishers');

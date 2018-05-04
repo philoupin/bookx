@@ -92,7 +92,7 @@ if (bookx_get_show_product_switch ( 'author_type', 'SHOW_', '_FILTER' )) {
         if (!$active_bx_filter_ids['author_type_id']) {
             $bookx_author_types_array [] = array (
                 'id' => '',
-                'text' => PULL_DOWN_ALL
+                'text' => PULL_DOWN_ALL_AUTHOR_TYPES
             );
         } else {
             $bookx_author_types_array [] = array (
@@ -151,7 +151,7 @@ if (bookx_get_show_product_switch ( 'author', 'SHOW_', '_FILTER' )) {
 		if (!$active_bx_filter_ids['author_id']) {
 			$bookx_authors_array [] = array (
 					'id' => '',
-					'text' => PULL_DOWN_ALL
+					'text' => PULL_DOWN_ALL_AUTHORS
 			);
 		} else {
 			$bookx_authors_array [] = array (
@@ -209,7 +209,7 @@ if (bookx_get_show_product_switch ( 'publisher', 'SHOW_', '_FILTER' )) {
 		if (! $active_bx_filter_ids['publisher_id']) {
 			$bookx_publishers_array [] = array (
 					'id' => '',
-					'text' => PULL_DOWN_ALL
+					'text' => PULL_DOWN_ALL_PUBLISHERS
 			);
 		} else {
 			$bookx_publishers_array [] = array (
@@ -266,7 +266,7 @@ if (bookx_get_show_product_switch ( 'imprint', 'SHOW_', '_FILTER' )) {
 		if (! $active_bx_filter_ids['imprint_id']) {
 			$bookx_imprints_array [] = array (
 					'id' => '',
-					'text' => PULL_DOWN_ALL
+					'text' => PULL_DOWN_ALL_IMPRINTS
 			);
 		} else {
 			$bookx_imprints_array [] = array (
@@ -324,7 +324,7 @@ if (bookx_get_show_product_switch ( 'series', 'SHOW_', '_FILTER' )) {
 		if (! $active_bx_filter_ids['series_id']) {
 			$bookx_series_array [] = array (
 					'id' => '',
-					'text' => PULL_DOWN_ALL
+					'text' => PULL_DOWN_ALL_SERIES
 			);
 		} else {
 			$bookx_series_array [] = array (
@@ -382,7 +382,7 @@ if (bookx_get_show_product_switch ( 'genre', 'SHOW_', '_FILTER' )) {
 		if (! $active_bx_filter_ids['genre_id']) {
 			$bookx_genres_array [] = array (
 					'id' => '',
-					'text' => PULL_DOWN_ALL
+					'text' => PULL_DOWN_ALL_GENRES
 			);
 		} else {
 			$bookx_genres_array [] = array (

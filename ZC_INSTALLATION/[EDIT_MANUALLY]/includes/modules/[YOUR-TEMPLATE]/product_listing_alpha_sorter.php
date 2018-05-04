@@ -13,7 +13,7 @@ if (!defined('IS_ADMIN_FLAG')) {
 }
 
 //**** bof Bookx mod 1 of 1
-$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN');
+//$zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN');
 //**** eof Bookx mod 1 of 1
 
 // build alpha sorter dropdown
@@ -29,6 +29,9 @@ $zco_notifier->notify('NOTIFY_MODULE_PRODUCT_LISTING_ALPHA_SORTER_BEGIN');
     for ($i=48; $i<58; $i++) {
       $letters_list[] = array('id' => sprintf('%02d', $i), 'text' => chr($i) );
     }
+
+    $zco_notifier->notify('NOTIFY_PRODUCT_LISTING_ALPHA_SORTER_SELECTLIST', $prefix, $letters_list);
+    
     if (TEXT_PRODUCTS_LISTING_ALPHA_SORTER != '') {
       echo '<label class="inputLabel">' . TEXT_PRODUCTS_LISTING_ALPHA_SORTER . '</label>' . zen_draw_pull_down_menu('alpha_filter_id', $letters_list, (isset($_GET['alpha_filter_id']) ? $_GET['alpha_filter_id'] : ''), 'onchange="this.form.submit()"');
     } else {
